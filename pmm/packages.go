@@ -1,16 +1,16 @@
 package pmm
 
-type pkgInfo struct {
+type PkgInfo struct {
 	Name    string `json:"name"`
 	Version string `json:"version"`
 	Manager string `json:"manager"`
 }
 
-func PkgMissingFromA(listA, listB []pkgInfo) []pkgInfo {
+func PkgMissingFromA(listA, listB []PkgInfo) []PkgInfo {
 
-	listAMap := make(map[string]pkgInfo, len(listA))
+	listAMap := make(map[string]PkgInfo, len(listA))
 
-	bOnlyPkgs := []pkgInfo{}
+	bOnlyPkgs := []PkgInfo{}
 
 	for _, v := range listA {
 		listAMap[v.Name] = v
