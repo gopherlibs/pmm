@@ -9,9 +9,9 @@ import (
 type apkManager struct {
 }
 
-func (this *apkManager) List() []pkgInfo {
+func (this *apkManager) List() []PkgInfo {
 
-	var packages []pkgInfo
+	var packages []PkgInfo
 
 	file, err := os.Open("/lib/apk/db/installed")
 	if err != nil {
@@ -31,7 +31,7 @@ func (this *apkManager) List() []pkgInfo {
 			line := scanner.Text()
 			pkgVersion := line[2:len(line)]
 
-			packages = append(packages, pkgInfo{
+			packages = append(packages, PkgInfo{
 				Name:    pkgName,
 				Version: pkgVersion,
 				Manager: "apk",

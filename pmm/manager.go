@@ -21,7 +21,7 @@ func (i ManagerType) String() string {
 
 type manager interface {
 	//Available() []pkgInfo
-	List() []pkgInfo
+	List() []PkgInfo
 }
 
 type managerNotAvailableError struct {

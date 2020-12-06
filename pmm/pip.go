@@ -11,9 +11,9 @@ type pipManager struct {
 	commands []string
 }
 
-func (this *pipManager) List() []pkgInfo {
+func (this *pipManager) List() []PkgInfo {
 
-	var packages []pkgInfo
+	var packages []PkgInfo
 	var pipJSON []map[string]string
 
 	for _, pipCmd := range []string{"pip", "pip3"} {
@@ -33,7 +33,7 @@ func (this *pipManager) List() []pkgInfo {
 		}
 
 		for _, pkg := range pipJSON {
-			packages = append(packages, pkgInfo{
+			packages = append(packages, PkgInfo{
 				Name:    pkg["name"],
 				Version: pkg["version"],
 				Manager: "pip",

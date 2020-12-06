@@ -8,46 +8,46 @@ import (
 func TestPkgMissingFromA(t *testing.T) {
 
 	testCases := []struct {
-		inputA   []pkgInfo
-		inputB   []pkgInfo
-		expected []pkgInfo
+		inputA   []PkgInfo
+		inputB   []PkgInfo
+		expected []PkgInfo
 		passing  bool
 	}{
 		{
-			[]pkgInfo{
-				pkgInfo{Name: "cu-ddns"},
-				pkgInfo{Name: "sonar"},
+			[]PkgInfo{
+				PkgInfo{Name: "cu-ddns"},
+				PkgInfo{Name: "sonar"},
 			},
-			[]pkgInfo{
-				pkgInfo{Name: "cu-ddns"},
-				pkgInfo{Name: "sonar"},
-				pkgInfo{Name: "gotham"},
+			[]PkgInfo{
+				PkgInfo{Name: "cu-ddns"},
+				PkgInfo{Name: "sonar"},
+				PkgInfo{Name: "gotham"},
 			},
-			[]pkgInfo{
-				pkgInfo{Name: "gotham"},
+			[]PkgInfo{
+				PkgInfo{Name: "gotham"},
 			},
 			true,
 		},
 		{
-			[]pkgInfo{
-				pkgInfo{Name: "cu-ddns"},
-				pkgInfo{Name: "sonar"},
+			[]PkgInfo{
+				PkgInfo{Name: "cu-ddns"},
+				PkgInfo{Name: "sonar"},
 			},
-			[]pkgInfo{
-				pkgInfo{Name: "cu-ddns"},
-				pkgInfo{Name: "sonar"},
+			[]PkgInfo{
+				PkgInfo{Name: "cu-ddns"},
+				PkgInfo{Name: "sonar"},
 			},
-			[]pkgInfo{},
+			[]PkgInfo{},
 			true,
 		},
 		{
-			[]pkgInfo{
-				pkgInfo{Name: "sonar"},
+			[]PkgInfo{
+				PkgInfo{Name: "sonar"},
 			},
-			[]pkgInfo{
-				pkgInfo{Name: "Sonar"},
+			[]PkgInfo{
+				PkgInfo{Name: "Sonar"},
 			},
-			[]pkgInfo{},
+			[]PkgInfo{},
 			false,
 		},
 	}

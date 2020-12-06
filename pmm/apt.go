@@ -5,9 +5,9 @@ import "github.com/arduino/go-apt-client"
 type aptManager struct {
 }
 
-func (this *aptManager) List() []pkgInfo {
+func (this *aptManager) List() []PkgInfo {
 
-	var packages []pkgInfo
+	var packages []PkgInfo
 
 	allPackages, _ := apt.List()
 
@@ -15,7 +15,7 @@ func (this *aptManager) List() []pkgInfo {
 
 		if pkg.Status == "installed" {
 
-			packages = append(packages, pkgInfo{
+			packages = append(packages, PkgInfo{
 				Name:    pkg.Name,
 				Version: pkg.Version,
 				Manager: "apt",

@@ -10,9 +10,9 @@ import (
 type rpmManager struct {
 }
 
-func (this *rpmManager) List() []pkgInfo {
+func (this *rpmManager) List() []PkgInfo {
 
-	var packages []pkgInfo
+	var packages []PkgInfo
 
 	output, err := exec.Command("rpm", "-qa", "--qf", "%{NAME}\t%{VERSION}\n").Output()
 	if err != nil {
@@ -25,7 +25,7 @@ func (this *rpmManager) List() []pkgInfo {
 	for _, pkg := range lines {
 
 		pkgSplit := strings.Split(pkg, "\t")
-		packages = append(packages, pkgInfo{
+		packages = append(packages, PkgInfo{
 			Name:    pkgSplit[0],
 			Version: pkgSplit[1],
 			Manager: "rpm",
